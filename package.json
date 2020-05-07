@@ -6,6 +6,9 @@
   "scripts": {
     "start": "electron app.js"
   },
+  "bin": {
+    "swv": "./app.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/maykbrito/simple-webview.git"

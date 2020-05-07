@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const { app, BrowserWindow, globalShortcut } = require('electron')
 const config = require('./config')
 
