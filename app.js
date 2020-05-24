@@ -1,5 +1,5 @@
 const { app, BrowserWindow, globalShortcut } = require('electron')
-const config = require('./config')
+const config = require('./config/settings')
 
 let win = null
 let contents = null
