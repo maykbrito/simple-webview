@@ -19,6 +19,9 @@
   "license": "MIT",
   "homepage": "https://github.com/maykbrito/simple-webview#readme",
   "devDependencies": {
-    "electron": "^8.2.5"
+    "electron": "^8.3.0"
+  },
+  "dependencies": {
+    "node": "^14.2.0"
   }
 }
