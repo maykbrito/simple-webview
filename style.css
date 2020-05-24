@@ -1,0 +1,31 @@
+body {
+  background-color: #694db5;
+  align-items: center;
+  display: flex;
+  height: 100vh; }
+
+.row {
+  width: 100%;
+  height: 8vh; }
+
+.input-group {
+  border-radius: 30px !important;
+  height: 100%;
+}
+
+input {
+  width: 85% !important;
+  border-top-left-radius: 20px !important;
+  border-bottom-left-radius: 20px !important;
+  border-right: 0;
+}
+
+.input-group-append {
+  width: 15% !important;
+}
+
+button{
+  width: 100%;
+  border-top-right-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
+}

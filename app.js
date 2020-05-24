@@ -12,13 +12,14 @@ function createWindow () {
     // transparent:true,
     // frame:false,
     titleBarStyle: 'hidden',
-    alwaysOnTop: true,
+    // alwaysOnTop: true,
     webPreferences: {
       nodeIntegration: true
     },
   })
 
-  win.loadURL(config.url)
+  // win.loadURL(config.url)
+  win.loadFile(config.file)
 
   contents = win.webContents
 
