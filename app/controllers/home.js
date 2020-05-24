@@ -1,3 +1,4 @@
+// This file refer to index.html
 const currentWindow = require('electron').remote.getCurrentWindow()
 
 
