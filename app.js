@@ -16,12 +16,14 @@ function createWindow () {
     webPreferences: {
       nodeIntegration: true
     },
+    
   })
 
-  win.loadURL(config.url)
+  win.setMenuBarVisibility(false)
+  win.loadFile('index.html')
+
 
   contents = win.webContents
-
 }
 
 function toggleDevTools() {
