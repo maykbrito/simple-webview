@@ -1,5 +1,5 @@
 module.exports = {
-    width: "600",
-    height: "400",
+    width: 1200,
+    height: 700,
     file: "app/index.html"
 }
