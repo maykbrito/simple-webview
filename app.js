@@ -13,7 +13,7 @@ function createWindow () {
     // transparent:true,
     // frame:false,
     titleBarStyle: 'hidden',
-    // alwaysOnTop: true,
+    alwaysOnTop: true,
     webPreferences: {
       nodeIntegration: true
     },
@@ -31,8 +31,14 @@ function toggleDevTools() {
   contents.toggleDevTools()
 }
 
+function backToHome(){
+  win.loadFile(config.file)
+
+}
+
 function createShortcuts() {
   globalShortcut.register('CmdOrCtrl+J', toggleDevTools)
+  globalShortcut.register('CmdOrCtrl+B', backToHome)
 }
 
 // This method will be called when Electron has finished

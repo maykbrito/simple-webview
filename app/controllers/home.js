@@ -9,17 +9,17 @@ document.querySelector('#btnSearch').addEventListener('click', () => {
     url =  document.getElementById("inputURL").value;
     urlExists(url, function(err, exists) {
         if (exists) {
-            let view = new BrowserView();
-            currentWindow.setBrowserView(view);
-            view.setBounds({ x: 20, y: 430, width: 60, height: 60 });
-            view.webContents.loadFile("app/arrow-left.html");
+            // let view = new BrowserView();
+            // currentWindow.setBrowserView(view);
+            // view.setBounds({ x: 20, y: 430, width: 60, height: 60 });
+            // view.webContents.loadFile("app/arrow-left.html");
             currentWindow.loadURL(url);
         }
     });   
 });
 
-document.querySelector('#btnBack').addEventListener('click', () => {
-    console.log("teste");
-});
+// document.querySelector('#btnBack').addEventListener('click', () => {
+//     console.log("teste");
+// });
 
 
