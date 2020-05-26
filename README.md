@@ -1,7 +1,8 @@
 # :rocket: RockeatBrowser Always on Top
 
-WebView that is always on top.
-Type your link and click in search.
+WebView that is always on top. Just type your link and click in search.
+
+You can use it whenever you want to see a page always on the screen regardless of where to click or which program to open.
 
 ### Shortcuts
 
