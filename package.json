@@ -22,6 +22,7 @@
     "electron": "^8.3.0"
   },
   "dependencies": {
-    "node": "^14.2.0"
+    "node": "^14.2.0",
+    "url-exists": "^1.0.3"
   }
 }
