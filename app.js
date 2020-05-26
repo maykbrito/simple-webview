@@ -9,6 +9,7 @@ function createWindow () {
   win = new BrowserWindow({
     width: config.width,
     height: config.height,
+    // frame: false,
     // transparent:true,
     // frame:false,
     titleBarStyle: 'hidden',
