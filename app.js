@@ -1,5 +1,6 @@
-const { app, BrowserWindow, globalShortcut } = require('electron')
+const { app, BrowserWindow, globalShortcut} = require('electron')
 const config = require('./config/settings')
+
 
 let win = null
 let contents = null
@@ -19,6 +20,7 @@ function createWindow () {
   })
 
   // win.loadURL(config.url)
+
   win.loadFile(config.file)
 
   contents = win.webContents
