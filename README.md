@@ -14,3 +14,9 @@ Shortcuts | Description
 ---------|---------
 Cmd+J or Ctrl+J | Show dev tools
 Cmd+B or Ctrl+b | Return to home page 
+
+### SASS compile command
+
+```console 
+$ sass --sourcemap=none --no-cache app/assets/sass/*.sass:app/assets/css/*.css
+```

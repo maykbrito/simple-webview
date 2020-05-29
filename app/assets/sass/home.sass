@@ -6,11 +6,17 @@ body
   align-items: center
   display: flex
   height: 100vh
+  font-family: 'Chelsea Market'
 
 input 
   width: 85% !important
   border-top-left-radius: $borderRadiusSize !important
   border-bottom-left-radius: $borderRadiusSize !important
+
+input:focus
+  outline: none !important
+  border-color: #ffcc4d !important
+  box-shadow: 0 0 5px #ffcc4d !important
 
 button
   width: 100%
@@ -19,9 +25,19 @@ button
 
 .row 
   width: 100%
-  height: 8vh
 
 .input-group-append
   width: 15% !important
 
+.titleBox 
+  margin: 30px
 
+i
+  color: #ffcc4d
+
+h1, h4
+  color: white
+
+#container
+  width: 100%
+  margin-left: 0px
