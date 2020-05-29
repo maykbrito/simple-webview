@@ -8,6 +8,8 @@ WebView that is always on top. Just type your link and click in search.
 
 You can use it whenever you want to see a page always on the screen regardless of where to click or which program to open.
 
+![gif](https://user-images.githubusercontent.com/19677206/83269511-96ca5000-a19d-11ea-80f3-540bd8a52e52.gif)
+
 ### Shortcuts
 
 Shortcuts | Description
