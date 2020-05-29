@@ -1,4 +1,4 @@
-# :rocket: RockeatBrowser Always on Top
+# :rocket: RocketBrowser Always on Top
 
 <a href="https://github.com/JohnAzedo/RocketBrowser/blob/master/LICENSE">
   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen.svg">
