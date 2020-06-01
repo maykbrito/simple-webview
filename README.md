@@ -38,8 +38,6 @@ Run application with:
 npm start
 ````
 
-
-
 ### SASS compile command
 
 If you change something in SASS files, run this command: 
