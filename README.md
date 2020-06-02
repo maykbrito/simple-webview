@@ -1,8 +1,10 @@
 # :rocket: RocketBrowser Always on Top
 
-<a href="https://github.com/JohnAzedo/RocketBrowser/blob/master/LICENSE">
+
+<a href="#"><img src="https://img.shields.io/github/last-commit/JohnAzedo/RocketBrowser"></img></a><a href="https://github.com/JohnAzedo/RocketBrowser/blob/master/LICENSE">
   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen.svg">
-</a>
+</a><a href="https://www.linkedin.com/in/jo%C3%A3o-pedro-lim%C3%A3o-960495111/"><img src="https://img.shields.io/badge/Author-JohnAzedo-brightgreen"></img></a>
+<a><img src="https://img.shields.io/npm/v/npm"></img></a>
 
 WebView that is always on top. Just type your link and click in search.
 
