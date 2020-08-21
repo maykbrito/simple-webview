@@ -11,12 +11,16 @@ function createWindow () {
     height: config.height,
     // transparent:true,
     // frame:false,
-    titleBarStyle: 'hidden',
+    // titleBarStyle: 'hidden',
     alwaysOnTop: true,
     webPreferences: {
       nodeIntegration: true
     },
   })
+  
+  //Remove Menu
+  win.setMenuBarVisibility(false)
+  //or = win.setMenu(null) if setMenuBarVisibility doesn't work
 
   win.loadURL(config.url)
 
