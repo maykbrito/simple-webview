@@ -1,17 +1,16 @@
 const { app, BrowserWindow, globalShortcut } = require('electron')
 const config = require('./config')
 
-let win = null
-let contents = null
+let win = null, contents = null;
 
 function createWindow () {
 
   win = new BrowserWindow({
     width: config.width,
     height: config.height,
-    // transparent:true,
-    // frame:false,
-    titleBarStyle: 'hidden',
+    transparent:true,
+    frame:false,
+    titleBarStyle: 'customButtonsOnHover',
     alwaysOnTop: true,
     webPreferences: {
       nodeIntegration: true
@@ -28,8 +27,13 @@ function toggleDevTools() {
   contents.toggleDevTools()
 }
 
+function fullScreen() {
+  win.isSimpleFullScreen() ? win.setSimpleFullScreen(false) : win.setSimpleFullScreen(true);
+}
+
 function createShortcuts() {
   globalShortcut.register('CmdOrCtrl+J', toggleDevTools)
+  globalShortcut.register('F11', fullScreen)
 }
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
