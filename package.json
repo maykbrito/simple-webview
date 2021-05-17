@@ -1,24 +1,32 @@
 {
   "name": "simple-webview",
   "version": "1.0.1",
-  "description": "📺 It's a simple overlay webview",
-  "main": "app.js",
+  "description": "📺 It's a minimalist overlay webview",
+  "main": "src/index.js",
   "scripts": {
-    "start": "electron app.js"
+    "start": "electron .",
+    "build": "electron-packager . --icon assets/webview --overwrite --out=packages"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/maykbrito/simple-webview.git"
   },
   "keywords": [
-    "screen",
-    "overlay",
-    "electron"
+    "browser",
+    "webview",
+    "minimalism"
   ],
   "author": "Mayk Brito",
   "license": "MIT",
   "homepage": "https://github.com/maykbrito/simple-webview#readme",
   "devDependencies": {
-    "electron": "^8.2.5"
+    "@types/electron": "^1.6.10",
+    "electron": "^10.1.1",
+    "electron-packager": "^15.2.0"
+  },
+  "dependencies": {
+    "chokidar": "^3.5.1",
+    "electron-store": "^8.0.0",
+    "json-schema-typed": "^7.0.3"
   }
 }
