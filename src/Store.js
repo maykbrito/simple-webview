@@ -1,7 +1,7 @@
-const electron = require("electron");
-const Store = require("electron-store");
-const chokidar = require("chokidar");
-const { JSONSchemaType } = require("json-schema-typed");
+const electron = require('electron')
+const Store = require('electron-store')
+const chokidar = require('chokidar')
+const { JSONSchemaType } = require('json-schema-typed')
 
 /**
  * @type {Store.Schema}
@@ -15,13 +15,13 @@ const userPreferencesSchema = {
       transparent: { type: JSONSchemaType.Boolean },
       frame: { type: JSONSchemaType.Boolean },
       titleBarStyle: { type: JSONSchemaType.String },
-      alwaysOnTop: { type: JSONSchemaType.Boolean },
-    },
+      alwaysOnTop: { type: JSONSchemaType.Boolean }
+    }
   },
   url: {
-    type: JSONSchemaType.String,
-  },
-};
+    type: JSONSchemaType.String
+  }
+}
 
 const userPreferences = new Store({
   schema: userPreferencesSchema,
@@ -32,16 +32,16 @@ const userPreferences = new Store({
       height: 400,
       transparent: false,
       frame: true,
-      titleBarStyle: "customButtonsOnHover",
-      alwaysOnTop: false,
+      titleBarStyle: 'customButtonsOnHover',
+      alwaysOnTop: false
     },
-    url: "http://localhost:3000/",
-  },
-});
+    url: 'https://google.com'
+  }
+})
 
-chokidar.watch(userPreferences.path).on("change", () => {
-  electron.app.relaunch();
-  electron.app.exit();
-});
+chokidar.watch(userPreferences.path).on('change', () => {
+  electron.app.relaunch()
+  electron.app.exit()
+})
 
-module.exports = { userPreferences };
+module.exports = { userPreferences }

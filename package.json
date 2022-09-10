@@ -7,6 +7,15 @@
     "start": "electron .",
     "build": "electron-packager . --icon assets/webview --overwrite --out=packages"
   },
+  "devDependencies": {
+    "electron": "19",
+    "electron-packager": "^16.0.0"
+  },
+  "dependencies": {
+    "chokidar": "^3.5.3",
+    "electron-store": "^8.0.0",
+    "json-schema-typed": "^7.0.3"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/maykbrito/simple-webview.git"
@@ -18,15 +27,5 @@
   ],
   "author": "Mayk Brito",
   "license": "MIT",
-  "homepage": "https://github.com/maykbrito/simple-webview#readme",
-  "devDependencies": {
-    "@types/electron": "^1.6.10",
-    "electron": "^10.1.1",
-    "electron-packager": "^15.2.0"
-  },
-  "dependencies": {
-    "chokidar": "^3.5.1",
-    "electron-store": "^8.0.0",
-    "json-schema-typed": "^7.0.3"
-  }
+  "homepage": "https://github.com/maykbrito/simple-webview#readme"
 }

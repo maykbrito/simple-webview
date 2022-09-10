@@ -1,6 +1,6 @@
-const { BrowserWindow } = require("electron");
-const { userPreferences } = require("./Store.js");
-const store = userPreferences.store;
+const { BrowserWindow } = require('electron')
+const { userPreferences } = require('./Store.js')
+const store = userPreferences.store
 
 function CreateWindow() {
   win = new BrowserWindow({
@@ -11,13 +11,13 @@ function CreateWindow() {
     titleBarStyle: store.browserWindow.titleBarStyle,
     alwaysOnTop: store.browserWindow.alwaysOnTop,
     webPreferences: {
-      nodeIntegration: true,
-    },
-  });
+      nodeIntegration: true
+    }
+  })
 
-  win.loadURL(store.url);
+  win.loadURL(store.url)
 
-  return win;
+  return win
 }
 
-module.exports = { CreateWindow };
+module.exports = { CreateWindow }

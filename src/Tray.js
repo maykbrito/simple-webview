@@ -1,37 +1,37 @@
-const { Tray: ElectronTray, Menu } = require("electron");
-const path = require("path");
-const { userPreferences } = require("./Store.js");
+const { Tray: ElectronTray, Menu } = require('electron')
+const path = require('path')
+const { userPreferences } = require('./Store.js')
 
 function Tray() {
-  const trayIcon = path.resolve(__dirname, "..", "assets", "webview-icon.png");
+  const trayIcon = path.resolve(__dirname, '..', 'assets', 'webview-icon.png')
 
   const contextMenu = Menu.buildFromTemplate([
     {
-      label: "Simple Webview",
+      label: 'Simple Webview',
       icon: trayIcon,
-      enabled: false,
+      enabled: false
     },
     {
-      label: "Settings",
+      label: 'Settings',
       click() {
-        return userPreferences.openInEditor();
-      },
+        return userPreferences.openInEditor()
+      }
     },
     {
-      type: "separator",
+      type: 'separator'
     },
     {
-      type: "normal",
-      label: "Close",
-      role: "quit",
-      enabled: true,
-    },
-  ]);
+      type: 'normal',
+      label: 'Close',
+      role: 'quit',
+      enabled: true
+    }
+  ])
 
-  const mainTray = new ElectronTray(trayIcon);
-  mainTray.setContextMenu(contextMenu);
-  mainTray.on("click", () => mainTray.popUpContextMenu());
-  return mainTray;
+  const mainTray = new ElectronTray(trayIcon)
+  mainTray.setContextMenu(contextMenu)
+  mainTray.on('click', () => mainTray.popUpContextMenu())
+  return mainTray
 }
 
-module.exports = { Tray };
+module.exports = { Tray }
