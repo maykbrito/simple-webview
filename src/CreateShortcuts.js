@@ -1,6 +1,6 @@
-const { globalShortcut } = require('electron')
+import { globalShortcut } from 'electron'
 
-function CreateShortcuts(win) {
+export function CreateShortcuts(win) {
   function fullScreen() {
     win.isSimpleFullScreen()
       ? win.setSimpleFullScreen(false)
@@ -9,5 +9,3 @@ function CreateShortcuts(win) {
 
   globalShortcut.register('F11', fullScreen)
 }
-
-module.exports = { CreateShortcuts }

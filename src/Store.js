@@ -1,30 +1,8 @@
-const electron = require('electron')
-const Store = require('electron-store')
-const chokidar = require('chokidar')
-const { JSONSchemaType } = require('json-schema-typed')
+import { app } from 'electron'
+import Store from 'electron-store'
+import chokidar from 'chokidar'
 
-/**
- * @type {Store.Schema}
- */
-const userPreferencesSchema = {
-  browserWindow: {
-    type: JSONSchemaType.Object,
-    properties: {
-      width: { type: JSONSchemaType.Number },
-      height: { type: JSONSchemaType.Number },
-      transparent: { type: JSONSchemaType.Boolean },
-      frame: { type: JSONSchemaType.Boolean },
-      titleBarStyle: { type: JSONSchemaType.String },
-      alwaysOnTop: { type: JSONSchemaType.Boolean }
-    }
-  },
-  url: {
-    type: JSONSchemaType.String
-  }
-}
-
-const userPreferences = new Store({
-  schema: userPreferencesSchema,
+export const userPreferences = new Store({
   watch: true,
   defaults: {
     browserWindow: {
@@ -33,15 +11,14 @@ const userPreferences = new Store({
       transparent: false,
       frame: true,
       titleBarStyle: 'customButtonsOnHover',
-      alwaysOnTop: false
+      alwaysOnTop: false,
+      hasShadow: false,
     },
     url: 'https://google.com'
   }
 })
 
 chokidar.watch(userPreferences.path).on('change', () => {
-  electron.app.relaunch()
-  electron.app.exit()
+  app.relaunch()
+  app.exit()
 })
-
-module.exports = { userPreferences }

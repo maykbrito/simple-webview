@@ -1,8 +1,8 @@
-const { Tray: ElectronTray, Menu } = require('electron')
-const path = require('path')
-const { userPreferences } = require('./Store.js')
+import { Menu, Tray as ElectronTray } from 'electron'
+import path from 'path'
+import { userPreferences } from './Store.js'
 
-function Tray() {
+export function Tray() {
   const trayIcon = path.resolve(__dirname, '..', 'assets', 'webview-icon.png')
 
   const contextMenu = Menu.buildFromTemplate([
@@ -33,5 +33,3 @@ function Tray() {
   mainTray.on('click', () => mainTray.popUpContextMenu())
   return mainTray
 }
-
-module.exports = { Tray }

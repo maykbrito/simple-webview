@@ -1,9 +1,9 @@
-const { BrowserWindow } = require('electron')
-const { userPreferences } = require('./Store.js')
+import { BrowserWindow } from 'electron'
+import { userPreferences } from './Store.js'
 const store = userPreferences.store
 
-function CreateWindow() {
-  win = new BrowserWindow({
+export function CreateWindow() {
+  const win = new BrowserWindow({
     width: store.browserWindow.width,
     height: store.browserWindow.height,
     transparent: store.browserWindow.transparent,
@@ -19,5 +19,3 @@ function CreateWindow() {
 
   return win
 }
-
-module.exports = { CreateWindow }

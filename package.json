@@ -1,20 +1,22 @@
 {
   "name": "simple-webview",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "📺 It's a minimalist overlay webview",
   "main": "src/index.js",
+  "type" :"module",
   "scripts": {
     "start": "electron .",
     "build": "electron-packager . --icon assets/webview --overwrite --out=packages"
   },
   "devDependencies": {
-    "electron": "19",
+    "electron": "29",
     "electron-packager": "^16.0.0"
   },
   "dependencies": {
-    "chokidar": "^3.5.3",
-    "electron-store": "^8.0.0",
-    "json-schema-typed": "^7.0.3"
+    "chokidar": "^3.6.0",
+    "electron-prompt": "^1.7.0",
+    "electron-store": "^8.2.0",
+    "json-schema-typed": "^8.0.1"
   },
   "repository": {
     "type": "git",

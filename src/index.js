@@ -1,7 +1,8 @@
-const { app, BrowserWindow } = require('electron')
-const { CreateWindow } = require('./CreateWindow.js')
-const { CreateShortcuts } = require('./CreateShortcuts.js')
-const { Tray } = require('./Tray.js')
+import { app, BrowserWindow } from 'electron'
+import { CreateWindow } from './CreateWindow.js'
+import { CreateShortcuts } from './CreateShortcuts.js'
+import { Tray } from './Tray.js'
+
 function App() {
   const win = CreateWindow()
   CreateShortcuts(win)
