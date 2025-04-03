@@ -1,6 +1,7 @@
 import { Menu, Tray as ElectronTray } from 'electron'
 import path from 'path'
 import { userPreferences } from './Store.js'
+import { __dirname } from './utils.js'
 
 export function Tray() {
   const trayIcon = path.resolve(__dirname, '..', 'assets', 'webview-icon.png')

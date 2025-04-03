@@ -19,6 +19,6 @@ export const userPreferences = new Store({
 })
 
 chokidar.watch(userPreferences.path).on('change', () => {
-  app.relaunch()
-  app.exit()
+  // app.relaunch()
+  // app.exit()
 })

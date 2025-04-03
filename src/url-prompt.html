@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        input {
+            font-size: 1.2rem;
+            width: 100%;
+            height: 100%;
+            padding: 1rem;
+            box-sizing: border-box;
+            border: none;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="url-input" placeholder="https://example.com" autofocus>
+
+    <script>
+        const { ipcRenderer } = require('electron');
+        const urlInput = document.getElementById('url-input');
+
+        ipcRenderer.on('current-url', (event, currentUrl) => {
+            urlInput.value = currentUrl;
+            urlInput.select();
+        });
+
+        urlInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                ipcRenderer.send('url-submit', urlInput.value);
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                ipcRenderer.send('url-cancel');
+            }
+        });
+    </script>
+</body>
+
+</html>
