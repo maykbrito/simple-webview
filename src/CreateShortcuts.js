@@ -1,53 +1,94 @@
-import { globalShortcut, BrowserWindow, ipcMain } from 'electron'
+import { Menu, BrowserWindow, ipcMain } from 'electron'
 import { userPreferences } from './Store.js'
 import path from 'path'
 import { __dirname } from './utils.js'
 
-export function CreateShortcuts(win) {
-  function fullScreen() {
+function openUrlPrompt(win) {
+
+  const promptWindow = new BrowserWindow({
+    width: 400,
+    height: 80,
+    parent: win,
+    modal: true,
+    frame: true,
+    resizable: false,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false
+    }
+  })
+
+  promptWindow.loadFile(path.join(__dirname, 'url-prompt.html'))
+
+  promptWindow.webContents.on('did-finish-load', () => {
+    promptWindow.webContents.send('current-url', userPreferences.get('url'))
+  })
+
+  ipcMain.once('url-submit', (event, newUrl) => {
+    if (newUrl && newUrl !== userPreferences.get('url')) {
+      userPreferences.set('url', newUrl)
+      if (win && !win.isDestroyed()) {
+        win.loadURL(newUrl) // Load URL in the main window
+      }
+    }
+    if (promptWindow && !promptWindow.isDestroyed()) {
+      promptWindow.close() // Close the prompt window
+    }
+  })
+
+  // Configurar o listener para cancelamento
+  ipcMain.once('url-cancel', () => {
+    if (promptWindow && !promptWindow.isDestroyed()) {
+      promptWindow.close() // Close the prompt window
+    }
+  })
+}
+// Export a function that sets up the menu
+export function setupApplicationMenu(win) {
+  // Helper function for fullscreen toggle
+  function toggleFullScreen() {
     win.isSimpleFullScreen()
       ? win.setSimpleFullScreen(false)
       : win.setSimpleFullScreen(true)
   }
 
-  function openUrlPrompt() {
-    // Criar uma janela de prompt personalizada
-    const promptWindow = new BrowserWindow({
-      width: 400,
-      height: 80,
-      parent: win,
-      modal: true,
-      frame: true,
-      resizable: false,
-      webPreferences: {
-        nodeIntegration: true,
-        contextIsolation: false
-      }
-    })
+  const menuTemplate = [
+    // Basic App menu (important on macOS)
+    ...(process.platform === 'darwin' ? [{ role: 'appMenu' }] : []),
+    // Edit menu (for copy/paste etc.)
+    { role: 'editMenu' },
+    // View menu
+    {
+      label: 'View',
+      submenu: [
+        { role: 'reload' },
+        { role: 'forceReload' },
+        { type: 'separator' },
+        {
+          label: 'Toggle Full Screen',
+          accelerator: 'F11',
+          click: toggleFullScreen // Use the helper function
+        }
+      ]
+    },
+    // Go menu (or could be under View/Window)
+    {
+      label: 'Go',
+      submenu: [
+        {
+          label: 'Open Location...',
+          accelerator: 'CommandOrControl+L',
+          click: () => openUrlPrompt(win) // Call the prompt function, passing the window
+        }
+      ]
+    },
+    // Window menu
+    { role: 'windowMenu' }
+  ];
 
-    // Carregar o HTML do prompt
-    promptWindow.loadFile(path.join(__dirname, 'url-prompt.html'))
+  const menu = Menu.buildFromTemplate(menuTemplate)
+  Menu.setApplicationMenu(menu)
 
-    // Enviar a URL atual para o prompt
-    promptWindow.webContents.on('did-finish-load', () => {
-      promptWindow.webContents.send('current-url', userPreferences.get('url'))
-    })
-
-    // Configurar o listener para receber a nova URL
-    ipcMain.once('url-submit', (event, newUrl) => {
-      if (newUrl && newUrl !== userPreferences.get('url')) {
-        userPreferences.set('url', newUrl)
-        win.loadURL(newUrl)
-      }
-      promptWindow.close()
-    })
-
-    // Configurar o listener para cancelamento
-    ipcMain.once('url-cancel', () => {
-      promptWindow.close()
-    })
-  }
-
-  globalShortcut.register('F11', fullScreen)
-  globalShortcut.register('CommandOrControl+L', openUrlPrompt)
+  // No need for globalShortcut or localShortcut registration here anymore
+  // The menu accelerators handle the focus automatically.
 }

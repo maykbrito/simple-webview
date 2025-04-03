@@ -1,11 +1,11 @@
 import { app, BrowserWindow } from 'electron'
 import { CreateWindow } from './CreateWindow.js'
-import { CreateShortcuts } from './CreateShortcuts.js'
+import { setupApplicationMenu } from './CreateShortcuts.js'
 import { Tray } from './Tray.js'
 
 function App() {
   const win = CreateWindow()
-  CreateShortcuts(win)
+  setupApplicationMenu(win)
   Tray()
 }
 
